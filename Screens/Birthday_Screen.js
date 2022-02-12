@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useTheme } from "react-native-paper";
+
 import { AntDesign } from "@expo/vector-icons";
 import Element from "../Components/Birthday/birthday_swipable";
 import Model from "../Components/Birthday/birthdaymodel";
@@ -14,6 +15,7 @@ import {
   Platform,
   UIManager,
 } from "react-native";
+import Header from "../Components/Header/Index";
 
 if (Platform.OS === "android") {
   UIManager.setLayoutAnimationEnabledExperimental &&
@@ -121,7 +123,8 @@ function My_List() {
     );
   }
   return (
-    <View style={styles.container}>
+    <View style={{ ...styles.container, backgroundColor: colors.background }}>
+      <Header />
       <FlatList
         ListHeaderComponent={header}
         ListEmptyComponent={emptylist}

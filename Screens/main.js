@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import Reminder_Screen from "./Reminder_Screen";
 import Birthday_Screen from "./Birthday_Screen";
+import { FAB, Portal, Provider } from "react-native-paper";
 import Settings_Screen from "./Settings_Screen";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
@@ -46,6 +47,11 @@ const darktheme = {
 const Tab = createBottomTabNavigator();
 
 function main() {
+  const [stateuse, setState] = React.useState({ open: false });
+
+  const onStateChange = ({ open }) => setState({ open });
+
+  const { open } = stateuse;
   const { init_data, snooze } = useContext(ReminderContext);
   const { init_data_Birthday } = useContext(BirthdayContext);
   const { state, init_data_Settings } = useContext(SettingsContext);

@@ -4,6 +4,7 @@ import { Feather } from "@expo/vector-icons";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { Context } from "../Context/SettingsContext";
 import { useTheme } from "react-native-paper";
+import Header from "../Components/Header/Index";
 
 function Settings() {
   const { state, toggle_darkmode } = useContext(Context);
@@ -11,6 +12,7 @@ function Settings() {
 
   return (
     <View style={styles.container}>
+      <Header />
       <View style={styles.TitleContainer}>
         <Text style={[styles.text, { fontSize: 45, color: colors.text }]}>
           Settings
